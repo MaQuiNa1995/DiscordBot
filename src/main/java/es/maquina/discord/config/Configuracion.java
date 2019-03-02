@@ -1,6 +1,7 @@
 package es.maquina.discord.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
@@ -12,6 +13,8 @@ import org.springframework.core.io.ClassPathResource;
  *
  */
 @Configuration
+//FIXME acotar mas la ruta
+@ComponentScan(basePackages = "es.maquina.discord.bot")
 public class Configuracion {
 
 	/**
@@ -25,7 +28,7 @@ public class Configuracion {
 	 * @return PropertySourcesPlaceholderConfigurer
 	 */
 	@Bean("propertyHolder")
-	public static PropertySourcesPlaceholderConfigurer properties() {
+	public static PropertySourcesPlaceholderConfigurer propertyHolder() {
 
 		PropertySourcesPlaceholderConfigurer propertyHolder = new PropertySourcesPlaceholderConfigurer();
 		propertyHolder.setIgnoreResourceNotFound(Boolean.FALSE);
