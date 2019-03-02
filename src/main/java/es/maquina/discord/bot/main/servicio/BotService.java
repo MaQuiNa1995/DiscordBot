@@ -20,14 +20,20 @@ public class BotService {
 
 	private JDABuilder builder;
 
-	private BotService() {
-		builder = new JDABuilder(AccountType.BOT);
-		builder.setToken(token);
-		try {
-			builder.build();
-		} catch (LoginException exception) {
-			builder = null;
-			LOGGER.error("Se ha producdo una excepcion al crear el bot mas info: " + exception.getMessage());
+	public void iniciarBot() {
+
+		if (builder == null) {
+
+			builder = new JDABuilder(AccountType.BOT);
+			builder.setToken(token);
+			try {
+				builder.build();
+			} catch (LoginException exception) {
+				builder = null;
+				LOGGER.error("Se ha producdo una excepcion al crear el bot mas info: " + exception.getMessage());
+
+				exception.printStackTrace();
+			}
 		}
 	}
 

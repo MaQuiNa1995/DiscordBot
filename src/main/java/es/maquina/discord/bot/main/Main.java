@@ -14,5 +14,7 @@ public class Main {
 			bot = context.getBean("botService", BotService.class);
 		}
 
+		bot.iniciarBot();
+
 	}
 }
